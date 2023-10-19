@@ -24,3 +24,11 @@
     margin: 0;
     margin-bottom: 1rem;
 }
+
+.passIcon{
+    position: absolute;
+    top: 68%;
+    right: 15%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }

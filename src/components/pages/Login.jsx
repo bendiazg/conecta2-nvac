@@ -45,8 +45,7 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     
                 />
-                
-                <div onClick={togglePasswordVisibility}>
+                <div className='passIcon' onClick={togglePasswordVisibility}>
                     {passwordVisible ? (<img src={hidePassIcon} alt='Icono 1'></img>) : (<img src={showPassIcon} alt='Icono 2'></img>)}
                  </div>
             </div>
