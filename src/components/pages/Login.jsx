@@ -40,14 +40,15 @@ function Login() {
             <div className='passwordContainer'>
                 <input
                     type={passwordVisible ? 'text' : 'password'}
+                    placeholder='Contraseña'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     
                 />
                 
-                <button onClick={togglePasswordVisibility}>
+                <div onClick={togglePasswordVisibility}>
                     {passwordVisible ? (<img src={hidePassIcon} alt='Icono 1'></img>) : (<img src={showPassIcon} alt='Icono 2'></img>)}
-                 </button>
+                 </div>
             </div>
             <div className='buttonContainer'>
                 <button onClick={handleLogin}>Iniciar Sesión</button>
