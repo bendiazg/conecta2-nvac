@@ -1,0 +1,26 @@
+.Login{
+    display: flex;
+    background-color: grey;
+    width: 100vw;
+    height: 100vh;
+    
+    
+}
+.loginContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.tittleContainer{
+    text-align: center;
+}
+
+.tittleContainer h2{
+    margin: 0;
+    margin-bottom: 1rem;
+}
