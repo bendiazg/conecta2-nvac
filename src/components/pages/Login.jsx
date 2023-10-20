@@ -1,7 +1,7 @@
 // Login.js
 import React, { useState } from 'react';
 import './Login.css'
-import loginBackground from '../images/loginBackground.png';
+
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -23,8 +23,7 @@ function Login() {
 
   return (
     <div className='Login'>
-        <div className='loginBackground' >
-            <img src={loginBackground} alt="" />                    
+        <div className='loginBackground' > 
         </div>
         <div className='loginContainer'>
             <div className='tittleContainer'>
