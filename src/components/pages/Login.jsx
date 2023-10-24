@@ -1,6 +1,7 @@
 // Login.js
 import React, { useState } from 'react';
 import './Login.css'
+import { Link } from 'react-router-dom';
 
 
 function Login() {
@@ -62,9 +63,9 @@ function Login() {
             </div>
             <div className='buttonContainer'>
                 <button onClick={handleLogin}>Iniciar Sesión</button>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">No tienes una cuenta? Registrate</a>
-                
+                <Link to="/register">No tienes una cuenta? Regístrate</Link>
             </div>
+
             
         </div>
 
