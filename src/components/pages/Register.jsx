@@ -29,7 +29,8 @@ const FormularioRegistro = () => {
   return (
     <div className="Register">
       <div className="registerBackground">
-        <div className="registerContainer">
+      </div>
+      <div className="registerContainer">
           <form onSubmit={handleSubmit}>
             <div>
               <label>Nombre de usuario:</label>
@@ -81,7 +82,6 @@ const FormularioRegistro = () => {
             <button type="submit">Registrarse</button>
           </form>
         </div>
-      </div>
     </div>
   );
 };
