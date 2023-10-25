@@ -63,7 +63,8 @@ function Login() {
             </div>
             <div className='buttonContainer'>
                 <button onClick={handleLogin}>Iniciar Sesión</button>
-                <Link to="/register">No tienes una cuenta? Regístrate</Link>
+                <Link to="/register" >¿No tienes una cuenta? Registrate</Link>
+                
             </div>
 
             

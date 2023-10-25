@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Register.css";
 
 const FormularioRegistro = () => {
   const [usuario, setUsuario] = useState("");
@@ -26,56 +27,60 @@ const FormularioRegistro = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Nombre de usuario:</label>
-        <input
-          type="text"
-          value={usuario}
-          onChange={(e) => setUsuario(e.target.value)}
-        />
+    <div className="Register">
+      <div className="registerBackground">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Nombre de usuario:</label>
+            <input
+              type="text"
+              value={usuario}
+              onChange={(e) => setUsuario(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Correo electrónico:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Número de teléfono:</label>
+            <input
+              type="tel"
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Foto de perfil:</label>
+            <input
+              type="file"
+              onChange={(e) => setFotoPerfil(e.target.files[0])}
+            />
+          </div>
+          <div>
+            <label>Contraseña:</label>
+            <input
+              type="password"
+              value={contrasena}
+              onChange={(e) => setContrasena(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Confirmar Contraseña:</label>
+            <input
+              type="password"
+              value={confirmarContrasena}
+              onChange={(e) => setConfirmarContrasena(e.target.value)}
+            />
+          </div>
+          <button type="submit">Registrarse</button>
+        </form>
       </div>
-      <div>
-        <label>Correo electrónico:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Número de teléfono:</label>
-        <input
-          type="tel"
-          value={telefono}
-          onChange={(e) => setTelefono(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Foto de perfil:</label>
-        <input
-          type="file"
-          onChange={(e) => setFotoPerfil(e.target.files[0])}
-        />
-      </div>
-      <div>
-        <label>Contraseña:</label>
-        <input
-          type="password"
-          value={contrasena}
-          onChange={(e) => setContrasena(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Confirmar Contraseña:</label>
-        <input
-          type="password"
-          value={confirmarContrasena}
-          onChange={(e) => setConfirmarContrasena(e.target.value)}
-        />
-      </div>
-      <button type="submit">Registrarse</button>
-    </form>
+    </div>
   );
 };
 

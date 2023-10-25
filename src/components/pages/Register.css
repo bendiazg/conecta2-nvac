@@ -1,0 +1,23 @@
+
+.Register{
+    background-color: rgb(28, 28, 28);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+.registerBackground{
+    background-image: url("../images/loginBackground.png");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+
+}
