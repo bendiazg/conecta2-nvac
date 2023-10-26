@@ -1,26 +1,42 @@
 // Login.js
 import React, { useState } from 'react';
 import './Login.css'
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
 
 
 function Login() {
     const [username, setUsername] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [password, setPassword] = useState('');
+    const [loggedIn, setLoggedIn] = useState(true);
+    const navigate = useNavigate();
+
   
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
-    };
+    };  
 
     const handleLogin = () => {
-        //lógica para autenticar al usuario
-        if (username === 'usuario' && password === 'contraseña') {
-        alert('Inicio de sesión exitoso');
+        const storedRegisteredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
+        if (storedRegisteredUsers) {
+            // Buscar al usuario por nombre de usuario
+            const userToLogin = storedRegisteredUsers.find(user => user.user === username);
+
+            if (userToLogin && userToLogin.password === password) {
+                // Inicio de sesión exitoso
+                navigate('/home');
+            } else {
+                // Las credenciales son incorrectas
+                alert('Credenciales incorrectas. Por favor, inténtalo de nuevo.');
+            }
         } else {
-        alert('Credenciales incorrectas');
+            // No hay usuarios registrados
+            alert('No hay usuarios registrados. Por favor, regístrate.');
         }
-    }
+    };
+
 
   return (
     <div className='Login'>
@@ -62,7 +78,9 @@ function Login() {
                  </div>
             </div>
             <div className='buttonContainer'>
+                
                 <button onClick={handleLogin}>Iniciar Sesión</button>
+                
                 <Link to="/register" >¿No tienes una cuenta? Registrate</Link>
                 
             </div>

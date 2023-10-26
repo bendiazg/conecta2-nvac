@@ -91,6 +91,9 @@
     text-decoration: color(rgb(204, 107, 253));
 }
 
+.buttonContainer .aButton{
+    padding: 0;
+}
 .buttonContainer button{
     border-radius: 7px;
     width: 10rem;

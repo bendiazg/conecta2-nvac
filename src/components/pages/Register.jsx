@@ -1,30 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Register.css";
 
-const FormularioRegistro = () => {
-  const [usuario, setUsuario] = useState("");
+const Register = () => {
+  const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
-  const [telefono, setTelefono] = useState("");
-  const [fotoPerfil, setFotoPerfil] = useState(null);
-  const [contrasena, setContrasena] = useState("");
-  const [confirmarContrasena, setConfirmarContrasena] = useState("");
+  const [phone, setPhone] = useState("");
+  const [profilePic, setProfilePic] = useState(null);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(null);
+
+
+  const saveUserLocalStorage = () => {
+    const userData = {
+      user,
+      email,
+      phone,
+      password,
+    };
+    const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+    registeredUsers.push(userData);
+    localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+  };
+
+  // Cargar datos del usuario almacenados en localStorage al montar el componente
+  useEffect(() => {
+    const storedRegisteredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
+    if (storedRegisteredUsers) {
+      // Puedes hacer algo con los datos almacenados si lo deseas.
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes enviar los datos al servidor o realizar la validación
 
-    if (
-      usuario &&
-      email &&
-      telefono &&
-      contrasena &&
-      contrasena === confirmarContrasena
-    ) {
+    if (user && email && phone && password === confirmPassword) {
       console.log("Registro exitoso");
+      saveUserLocalStorage();
     } else {
-      console.error("Por favor, complete todos los campos correctamente.");
+      setPasswordError("Las contraseñas no coinciden.");
     }
   };
+
 
   return (
     <div className="Register">
@@ -36,8 +53,8 @@ const FormularioRegistro = () => {
               <label>Nombre de usuario:</label>
               <input
                 type="text"
-                value={usuario}
-                onChange={(e) => setUsuario(e.target.value)}
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
               />
             </div>
             <div>
@@ -52,31 +69,31 @@ const FormularioRegistro = () => {
               <label>Número de teléfono:</label>
               <input
                 type="tel"
-                value={telefono}
-                onChange={(e) => setTelefono(e.target.value)}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
             <div>
               <label>Foto de perfil:</label>
               <input
                 type="file"
-                onChange={(e) => setFotoPerfil(e.target.files[0])}
+                onChange={(e) => setProfilePic(e.target.files[0])}
               />
             </div>
             <div>
               <label>Contraseña:</label>
               <input
                 type="password"
-                value={contrasena}
-                onChange={(e) => setContrasena(e.target.value)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div>
               <label>Confirmar Contraseña:</label>
               <input
                 type="password"
-                value={confirmarContrasena}
-                onChange={(e) => setConfirmarContrasena(e.target.value)}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
             <button type="submit">Registrarse</button>
@@ -86,4 +103,4 @@ const FormularioRegistro = () => {
   );
 };
 
-export default FormularioRegistro;
+export default Register;
