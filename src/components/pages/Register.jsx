@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Register.css";
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [user, setUser] = useState("");
@@ -9,6 +10,8 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState(null);
+
+  const navigate = useNavigate();
 
 
   const saveUserLocalStorage = () => {
@@ -37,6 +40,7 @@ const Register = () => {
     if (user && email && phone && password === confirmPassword) {
       console.log("Registro exitoso");
       saveUserLocalStorage();
+        navigate('/');
     } else {
       setPasswordError("Las contraseñas no coinciden.");
     }
